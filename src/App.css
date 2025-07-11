@@ -39,16 +39,20 @@
   display: flex;
   justify-content: space-between;
   height: calc(100vh - 64px);
+  overflow: hidden;
 }
 .left-holder{
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   background-color: lightblue;
   position: absolute;
-  top: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   left: -300px;
   justify-content: center;
   align-items: center;
+  opacity: 1;
+  transition: all 300ms ease;
 }
 .middle-header{
   position: absolute;
@@ -61,18 +65,86 @@
   padding-left: 24px;
 }
 .right-holder{
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   background-color: lightcoral;
   position: absolute;
-  top: 40px;
+  top: 50%;
+  transform: translateY(-50%);
   right: -300px;
   justify-content: center;
   align-items: center;
 }
 .intro-box{
-  width: 500px;
-  height: 500px;
+  width: 550px;
+  height: 550px;
   border: 1px dotted gray;
   rotate: 45deg;
+}
+.arrow-icon{
+  font-size: 20px;
+}
+.left-side{
+  position: relative;
+}
+.left-message-holder{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  right: -5%;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.discover-ai-button{
+  padding: 8px;
+  padding-bottom: 4px;
+  border: 1px solid black;
+  rotate: 45deg;
+  justify-content: center;
+  align-items: center;
+}
+.discover-ai-text-left{
+  padding-left: 16px;
+}
+.discover-ai-text-right{
+  padding-right: 16px;
+}
+.rotated-90{
+  rotate: 135deg;
+}
+.rotated-none{
+  rotate: -45deg;
+}
+.right-message-holder{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  left: -5%;
+  display: flex;
+  align-items: center;
+  z-index: 1;
+}
+.discover-ai-button-left{
+  transform: scale(1);
+  transition: all 300ms ease;
+}
+.discover-ai-button-right{
+  transform: scale(1);
+  transition: all 300ms ease;
+}
+.right-message-holder:hover{
+  cursor: pointer;
+}
+.right-message-holder:hover .discover-ai-button-right{
+  transform: scale(1.1);
+}
+.left-message-holder:hover{
+  cursor: pointer;
+}
+.left-message-holder:hover .discover-ai-button-left{
+  transform: scale(1.1);
+}
+.right-message-holder:hover .left-holder{
+  opacity: 0;
 }
