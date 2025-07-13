@@ -1,45 +1,83 @@
 import React from 'react'
 import { MdPlayArrow } from "react-icons/md"
+import { Link } from 'react-router-dom'
 
 
 const Intro = () => {
   return (
     <div>
-        <div className='main-container'>
-            <div className='skinstric-header'>
-                <div className='skinstric-namestate'>
-                    <div className='skinstric-name'>sKINsTRIC</div>
-                    <div className='skinstric-state'>{'[ INTRO ]'}</div>
-                </div>
-                <div className='header-button'>
-                    <button className='black-button'>ENTER CODE</button>
-                </div>
+        <div className='intro-header-section'>
+
+            <div className='intro-header-section-namestate'>
+                <Link to="/" className='intro-header-section-name'>sKINsTRIC</Link>
+                <p className='intro-header-section-state'>{`[ INTRO ]`}</p>
             </div>
-            <div className='skinstric-body'>
-                <div className='left-holder'>
-                    <div className='left-message-holder'>
-                        <div className='discover-ai-button discover-ai-button-left'>
-                            <MdPlayArrow className='arrow-icon rotated-90' />
-                        </div>
-                        <div className='discover-ai-text-left'>DISCOVER A.I.</div>
-                    </div>
-                    <div className='intro-box left-side'>
+            <button className='black-button'>ENTER CODE</button>
+        </div>
+
+        <div className='body-container'>
+            <div className='center-box'>
+
+                {/* sub 1024 section */}
+                <div className='little-boxholder-1'>
+                    <div className='box-rotated-350'></div>
+                </div>
+                <div className='little-boxholder-2'>
+                    <div className='box-rotated-420'></div>
+                </div>
+                {/* end sub 1024 section */}
+
+                <div className='main-heading'>
+                    <h1 className='heading-text'>Sophisticated<br/><span className='heading-text-2'>skincare</span></h1>
+                </div>
+
+                {/* sub 1024 section */}
+                <p className='little-blurb'>Skinstric developed an A.I. that creates a highly-personalized routine tailored to what your skin needs.</p>
+                <div className='enter-experience-link-holder'>
+                    <Link to='/testing'>
+                        <button className='enter-experience-link-button'>
+                            <span className='enter-experience-link-text'>ENTER EXPERIENCE</span>
+                            <div className='enter-experience-link-diamond'>
+                                <MdPlayArrow className='arrow-icon' />
+                            </div>
+                        </button>
+                    </Link>
+                </div>
+                {/* end sub 1024 section */}
+
+                <div className='blurb-holder'>
+                    <p>SKINSTRIC DEVELOPED AN A.I. THAT CREATES A<br/>HIGHLY-PERSONALIZED ROUTINE TAILORED TO<br/>WHAT YOUR SKIN NEEDS.</p>
+                </div>
+
+                <div className='left-section'>
+                    <div className='left-section-holder'>
+                        <div className='left-section-diamond'></div>
+                        <button className='discover-button'>
+                            <div className='button-diamond'>
+                                <MdPlayArrow className='arrow-icon discover-arrow' />
+                            </div>
+                            <span className='discover-ai'>DISCOVER A.I.</span>
+                        </button>
                     </div>
                 </div>
-                <div className='right-holder'>
-                    <div className='right-message-holder'>
-                        <div className='discover-ai-text-right'>TAKE TEST</div>
-                        <div className='discover-ai-button discover-ai-button-right'>
-                            <MdPlayArrow className='arrow-icon rotated-none' />
-                        </div>
+
+                <div className='right-section'>
+                    <div className='right-section-holder'>
+                        <div className='right-section-diamond'></div>
+                        <Link to='/testing'>
+                            <button className='take-test-button'>TAKE TEST
+                                <div className='button-diamond'>
+                                    <MdPlayArrow className='arrow-icon' />
+                                </div>
+                            </button>
+                        </Link>
                     </div>
-                    <div className='intro-box right-side'></div>
                 </div>
-                <div className='middle-header'>
-                    <div className='middle-header-top'>Sophisticated</div>
-                    <div className='middle-header-bottom'>skincare</div>
-                </div>
+
+
             </div>
+
+
         </div>
     </div>
   )
