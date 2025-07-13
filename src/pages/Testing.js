@@ -12,19 +12,19 @@ const Testing = () => {
     const [userCity, setUserCity] = useState('')
 
     const addName = (userName) => {
-        setData(...data, firstName: userName)
-        console.log(data)
+        setData({...data, firstName: userName})
         setStep(2)
     }
 
     const addCity = (userCity) => {
-        setData(...data, theCity: userCity)
-        console.log(data)
+        setData({...data, theCity: userCity})
         setStep(3)
 
         setTimeout(() => {
             setStep(4)
         }, 2000);
+
+        console.log(data)
     }
 
   return (
