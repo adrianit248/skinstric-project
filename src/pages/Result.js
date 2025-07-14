@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 import CameraIcon from '../camera-icon.webp'
 import CameraScanLine from '../ResScanLine.webp'
@@ -7,7 +7,14 @@ import GalleryScanLine from '../ResGalleryLine.webp'
 import { MdPlayArrow } from "react-icons/md"
 
 
-const Result = () => {
+const Result = (data) => {
+
+    const [steps, setSteps] = useState(1)
+
+    useEffect(() => {
+        console.log(data.data)
+    }, [])
+
   return (
     <div>
         <div className='intro-header-section'>
@@ -32,13 +39,28 @@ const Result = () => {
                     <div className='analysis-diamond-small'></div>
 
                     <div className='camera-section-holder'>
-                        <img src={CameraIcon} className="camera-icon"/>
+                        <img src={CameraIcon} className="camera-icon" onClick={() => setSteps(2)}/>
                         <div className='camera-aside-holder'>
                             <p className='allow-ai-text'>ALLOW A.I.<br/>TO SCAN YOUR FACE</p>
                             <img src={CameraScanLine} className='camera-scan-line'></img>
                         </div>
                     </div>
+
+                    {steps === 2 
+                    &&  <div className='access-camera-holder'>
+                            <div className='access-camera-message-container'>
+                                <h2 className='access-camera-message'>ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+                                <div className='deny-allow-holder'>
+                                    <button className='deny-button' onClick={() => setSteps(1)}>DENY</button>
+                                    <button className='allow-button'>ALLOW</button>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    
                 </div>
+
+
 
                 <div className='access-gallery-side-container'>
                     <div className='intermediary-div'></div>
@@ -56,11 +78,11 @@ const Result = () => {
                 </div>
 
                 <div className='preview-section-holder'>
-                    <h1 className='preview-header'></h1>
+                    <h1 className='preview-header'>Preview</h1>
                     <div className='preview-box'></div>
                 </div>
 
-                <input accept="image/*" class="hidden" type="file"></input>
+                {/* <input accept="image/*" class="hidden" type="file"></input> */}
 
                 <div className='result-bottom'>
                     <div className='bottom-bar'>
@@ -79,7 +101,21 @@ const Result = () => {
                             </div>
                         </Link>
 
-                        <a href="/select"><div class="hidden"><div><div class=" w-12 h-12 flex items-center justify-center border border-[#1A1B1C] rotate-45 scale-[1] sm:hidden"><span class="rotate-[-45deg] text-xs font-semibold sm:hidden">PROCEED</span></div><div class="group hidden sm:flex flex-row relative justify-center items-center"><span class="text-sm font-semibold hidden sm:block mr-5">PROCEED</span><div class=" w-12 h-12 hidden sm:flex justify-center border border-[#1A1B1C] rotate-45 scale-[0.85] group-hover:scale-[0.92] ease duration-300"></div><span class="absolute right-[15px] bottom-[13px] scale-[0.9] hidden sm:block group-hover:scale-[0.92] ease duration-300">▶</span></div></div></div></a>
+                        <Link to='/select'>
+                            <div className='hidden-div'>
+                                <div>
+                                    <div className='hidden-1'>
+                                        <span className='hidden-2'>PROCEED</span>
+                                    </div>
+
+                                    <div className='hidden-3'>
+                                        <span className='hidden-4'>PROCEED</span>
+                                        <div className='hidden-5'></div>
+                                        <span className='hidden-6'>▶</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </Link>
                     </div>
                 </div>
             </div>

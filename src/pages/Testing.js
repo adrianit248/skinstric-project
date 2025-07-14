@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { MdPlayArrow } from "react-icons/md"
 import Loader from '../loading_gif.gif'
@@ -23,9 +23,11 @@ const Testing = () => {
         setTimeout(() => {
             setStep(4)
         }, 2000);
-
-        console.log(data)
     }
+
+    useEffect(() => {
+        console.log(data)
+    }, [data])
 
   return (
     <div>
@@ -103,7 +105,7 @@ const Testing = () => {
 
             {step === 4 
             &&  <div className="proceed-button-holder">
-                    <Link to='/result' className="proceed-button-holder-style">
+                    <Link to='/result' className="proceed-button-holder-style" data={data}>
                         <div>
                             <div className="proceed-diamond">
                                 <span className="proceed-text">PROCEED</span>
