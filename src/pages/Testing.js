@@ -6,19 +6,38 @@ import Loader from '../loading_gif.gif'
 
 const Testing = () => {
 
-    const [data, setData] = useState({firstName: '', theCity: ''})
+    const [data, setData] = useState({name: '', location: ''})
     const [step, setStep] = useState(1)
     const [userName, setUserName] = useState('')
     const [userCity, setUserCity] = useState('')
+    const [error, setError] = useState('')
+    const [redText, setRedText] = useState(false)
 
     const addName = (userName) => {
-        setData({...data, firstName: userName})
-        setStep(2)
+        const regex = /^[A-Za-z\s]*$/;
+
+        if (regex.test(userName)) {
+            setData({...data, name: userName})
+            setRedText(false)
+            setStep(2)
+        } else {
+            alert('Please enter a valid name without numbers or special characters')
+        }
     }
 
     const addCity = (userCity) => {
-        setData({...data, theCity: userCity})
-        setStep(3)
+        const regex = /^[A-Za-z\s]*$/;
+
+        if (regex.test(userCity)) {
+            setData({...data, location: userCity})
+            setRedText(false)
+            setStep(3)
+        } else {
+            alert('Please enter a valid name without numbers or special characters')
+        }
+
+        const formData = new FormData()
+        formData.append()
 
         setTimeout(() => {
             setStep(4)
@@ -46,18 +65,22 @@ const Testing = () => {
             </div>
 
             <div className="testing-intro-holder">
-                {step === 1 || step === 2 && <p className="testing-intro-clicktotype">CLICK TO TYPE</p>}
+                {step === 1 && <p className="testing-intro-clicktotype">CLICK TO TYPE</p>}
+                {step === 2 && <p className="testing-intro-clicktotype">CLICK TO TYPE</p>}
                 <form className="testing-form">
-                    <div className="column-item-centered"></div>
+                    <div className="column-item-centered">
+                    </div>
 
-                    {step === 1 && <input onChange={(event) => setUserName(event.target.value)} 
+                    {redText && <p className="red-text">Please enter a valid name without numbers or special characters</p>}
+
+                    {step === 1 && <input autoFocus onChange={(event) => setUserName(event.target.value)} 
                         onKeyPress={(event) => {
                             if (event.key === "Enter") {
                                 addName(userName);
                             }
                         }} 
                         className="testing-intro-input" placeholder="Introduce Yourself" autoComplete="off" type="text" name="name"></input>}
-                    {step === 2 && <input onChange={(event) => setUserCity(event.target.value)} 
+                    {step === 2 && <input autoFocus onChange={(event) => setUserCity(event.target.value)} 
                         onKeyPress={(event) => {
                             if (event.key === "Enter") {
                                 addCity(userCity);
