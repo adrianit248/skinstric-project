@@ -1121,8 +1121,8 @@ RESULT PAGE
     line-height: 1.25rem;
   }
 }
-.preview-darker{
-  color:black !important;
+.preview-darker {
+  color: black !important;
   font-weight: 500 !important;
   margin-bottom: 0px !important;
   font-size: 14px !important;
@@ -1425,15 +1425,15 @@ LOADING PAGE
 
 */
 
-.black-one{
+.black-one {
   color: black !important;
   font-weight: 500;
 }
-.loading-main{
+.loading-main {
   width: 100%;
   height: 90vh;
 }
-.loading-aside{
+.loading-aside {
   left: 50%;
   top: 40%;
   transform: translateX(-50%);
@@ -1442,19 +1442,19 @@ LOADING PAGE
   align-items: center;
   color: #8e8e8e;
 }
-.loading-cam-messages{
+.loading-cam-messages {
   position: fixed;
-  top: 110%; 
+  top: 110%;
 }
-.loading-scan{
+.loading-scan {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-    @media (min-width: 768px) {
-      position: absolute;
-      left: 50%;
-      top: 300%;
-      transform: translateX(-50%);
+  @media (min-width: 768px) {
+    position: absolute;
+    left: 50%;
+    top: 300%;
+    transform: translateX(-50%);
   }
 }
 
@@ -1663,6 +1663,51 @@ CAPTURE PAGE
 }
 .use-photo-button:hover {
   background-color: #1f2937;
+}
+.modal-holder {
+  position: absolute;
+  width: 280px;
+  height: 175px;
+  background-color: white;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 10px;
+  opacity: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  @media (max-width: 768px) {
+    width: 150px;
+    height: 125px;
+  }
+}
+.modal-header {
+  font-size: 36px;
+  color: #474747;
+  margin-top: 12px;
+  animation: modalfadeInOut 1.5s ease-in-out infinite;
+
+  @media (max-width: 768px) {
+    font-size: 20px;
+  }
+}
+@keyframes modalfadeInOut {
+  0% { opacity: .25; }
+  50% { opacity: 1; }
+  100% { opacity: .25; }
+}
+.modal-loader {
+  display: block;
+  width: 170px;
+  height: 120px;
+
+  @media (max-width: 768px) {
+    width: 100px;
+    height: 75px;
+  }
 }
 
 /* 

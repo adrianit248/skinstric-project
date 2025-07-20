@@ -12,6 +12,7 @@ const Testing = () => {
     const [userCity, setUserCity] = useState('')
     const [error, setError] = useState('')
     const [redText, setRedText] = useState(false)
+    const [resulting, setResulting] = useState({})
 
     const addName = (userName) => {
         const regex = /^[A-Za-z\s]*$/;
@@ -29,9 +30,12 @@ const Testing = () => {
         const regex = /^[A-Za-z\s]*$/;
 
         if (regex.test(userCity)) {
-            setData({...data, location: userCity})
+            const updatedData = { ...data, location: userCity };
+            setData(updatedData)
             setRedText(false)
             setStep(3)
+
+            saveAndUploadData(updatedData);
         } else {
             alert('Please enter a valid name without numbers or special characters')
         }
@@ -40,6 +44,30 @@ const Testing = () => {
             setStep(4)
         }, 2000);
     }
+
+    const saveAndUploadData = async (userData) => {
+    try {
+        // 1. Save to localStorage
+        localStorage.setItem("userInfo", JSON.stringify(userData));
+
+        // 2. Upload to API
+        const response = await fetch("https://us-central1-api-skinstric-ai.cloudfunctions.net/skinstricPhaseOne", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+        });
+
+        // 3. Read and log the response
+        const result = await response.json();
+        console.log("API response:", result);
+        setResulting(result)
+    } catch (error) {
+        console.error("Error uploading data:", error);
+    }
+    };
+
 
     useEffect(() => {
         console.log(data)
@@ -94,6 +122,7 @@ const Testing = () => {
                     &&  <>
                             <p className="thank-you-message">Thank you!</p>
                             <p className="proceed-message">Proceed for the next step</p>
+                            <p className="proceed-message"><br/>{resulting.message}</p>
                         </>
                     }
                     

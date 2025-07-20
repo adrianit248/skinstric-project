@@ -1,10 +1,10 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Webcam from "react-webcam";
 import { useRef, useEffect, useState } from "react";
 import TakePicIcon from '../take-pic-icon.webp'
 import { MdPlayArrow } from "react-icons/md"
-
+import Loader from '../loading_gif.gif'
 
 
 const Capture = () => {
@@ -12,9 +12,12 @@ const Capture = () => {
   const photoRef = useRef(null);
   const [hasPhoto, setHasPhoto] = useState(false);
   const [baseImg, setBaseImg] = useState(null)
+  const [modal, setModal] = useState(false)
   let photo
   let ctx
   let dataURL
+
+  const navigate = useNavigate()
 
 
   const getVideo = () => {
@@ -29,13 +32,61 @@ const Capture = () => {
   };
 
   const changePhoto = () => {
-    // setHasPhoto(false)
-    // ctx.clearRect(0, 0, photo.width, photo.height);
+    const canvas = photoRef.current;
+    const context = canvas.getContext('2d');
+
+    // Clear the canvas
+    context.clearRect(0, 0, canvas.width, canvas.height);
+
+    // Reset photo state
+    setHasPhoto(false);
   }
 
-  const usingPhoto = () => {
+    const usingPhoto = async () => {
+        try {
+            const storedImage = localStorage.getItem("userImage");
 
-  }
+            if (!storedImage) {
+            alert("No image found.");
+            return;
+            }
+
+            const requestData = {
+            image: storedImage,
+            };
+
+            const response = await fetch(
+            "https://us-central1-api-skinstric-ai.cloudfunctions.net/skinstricPhaseTwo",
+            {
+                method: "POST",
+                headers: {
+                "Content-Type": "application/json",
+                },
+                body: JSON.stringify(requestData),
+            }
+            );
+
+            if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            const responseData = await response.json();
+            console.log("API response:", responseData);
+
+            // Store the result in localStorage
+            localStorage.setItem("phaseTwoData", JSON.stringify(responseData));
+        } catch (error) {
+            console.error("Error uploading image:", error);
+            alert("Something went wrong while uploading the photo.");
+        }
+
+        setModal(true)
+
+        setTimeout(() => {
+            setModal(false)
+            navigate('/select')
+        }, 5000);
+    };
 
   const takePhoto = () => {
     const width = 1920;
@@ -54,6 +105,9 @@ const Capture = () => {
     // producing a Base64 format for the image and console logging it
     dataURL = photo.toDataURL('image/png')
     console.log(dataURL)
+
+    // saving to local storage
+    localStorage.setItem("userImage", dataURL)
   }
 
   useEffect(() => {
@@ -112,6 +166,15 @@ const Capture = () => {
                     </div>
                 :   <></>
                 } 
+
+                {modal 
+                ?   <div className="modal-holder">
+                        <div className="modal-header">Analyzing...</div>
+                        <img src={Loader} className="modal-loader"></img>
+                        <div></div>
+
+                    </div> 
+                :   <></>}
             </div>
 
             <div className="back-button-holder">
