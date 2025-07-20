@@ -86,7 +86,7 @@ const Result = () => {
                 </div>
 
                 <div className='preview-section-holder'>
-                    <h1 className='preview-header'>Preview</h1>
+                    <h1 className='preview-header preview-darker'>Preview</h1>
                     <div className='preview-box'></div>
                 </div>
 

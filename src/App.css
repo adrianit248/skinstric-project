@@ -1121,6 +1121,12 @@ RESULT PAGE
     line-height: 1.25rem;
   }
 }
+.preview-darker{
+  color:black !important;
+  font-weight: 500 !important;
+  margin-bottom: 0px !important;
+  font-size: 14px !important;
+}
 .preview-box {
   overflow: hidden;
   border-width: 1px;
