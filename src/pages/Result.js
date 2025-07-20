@@ -16,7 +16,7 @@ const Result = () => {
     const navigate = useNavigate()
 
     const handleButtonClick = () => {
-        navigate('/camera/capture')
+        navigate('/loading')
     }
 
     useEffect(() => {

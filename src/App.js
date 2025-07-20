@@ -7,6 +7,7 @@ import Result from './pages/Result';
 import Select from './pages/Select';
 import Summary from './pages/Summary';
 import Capture from './pages/Capture';
+import LoadingCamera from './pages/LoadingCamera';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="/testing" element={<Testing />} />
         <Route path="/result" element={<Result />} />
         <Route path="/select" element={<Select />} />
+        <Route path="/loading" element={<LoadingCamera />} />
         <Route path="/camera/capture" element={<Capture />} />
         <Route path="/summary" element={<Summary />} />
       </Routes>

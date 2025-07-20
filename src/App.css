@@ -1415,6 +1415,45 @@ SELECT PAGE
 
 /* 
 
+LOADING PAGE
+
+*/
+
+.black-one{
+  color: black !important;
+  font-weight: 500;
+}
+.loading-main{
+  width: 100%;
+  height: 90vh;
+}
+.loading-aside{
+  left: 50%;
+  top: 40%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #8e8e8e;
+}
+.loading-cam-messages{
+  position: fixed;
+  top: 110%; 
+}
+.loading-scan{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+    @media (min-width: 768px) {
+      position: absolute;
+      left: 50%;
+      top: 300%;
+      transform: translateX(-50%);
+  }
+}
+
+/* 
+
 CAPTURE PAGE
 
 */

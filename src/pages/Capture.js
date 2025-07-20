@@ -29,8 +29,8 @@ const Capture = () => {
   };
 
   const changePhoto = () => {
-    setHasPhoto(false)
-    ctx.clearRect(0, 0, photo.width, photo.height);
+    // setHasPhoto(false)
+    // ctx.clearRect(0, 0, photo.width, photo.height);
   }
 
   const usingPhoto = () => {
