@@ -36,9 +36,6 @@ const Testing = () => {
             alert('Please enter a valid name without numbers or special characters')
         }
 
-        const formData = new FormData()
-        formData.append()
-
         setTimeout(() => {
             setStep(4)
         }, 2000);
@@ -104,9 +101,9 @@ const Testing = () => {
 
 
                 </form>
-                <div className="diamond-large"></div>
-                <div className="diamond-medium"></div>
-                <div className="diamond-small"></div>
+                <div className="diamond-large large-ani"></div>
+                <div className="diamond-medium medium-ani"></div>
+                <div className="diamond-small small-ani"></div>
             </div>
 
             <div className="back-button-holder">
@@ -135,10 +132,10 @@ const Testing = () => {
                             </div>
 
                             <div className="big-proceed-button">
+                                <span className="big-proceed-text">PROCEED</span>
                                 <div className="big-proceed-diamond">
                                     <MdPlayArrow className='arrow-icon big-proceed-arrow' />
                                 </div>
-                                <span className="big-proceed-text">PROCEED</span>
                             </div>
                         </div>
                     </Link>

@@ -34,9 +34,9 @@ const Result = (data) => {
             <div className='main-result-container'>
                 <div className='scan-face-side-container'>
                     <div className='intermediary-div'></div>
-                    <div className='analysis-diamond-large'></div>
-                    <div className='analysis-diamond-medium'></div>
-                    <div className='analysis-diamond-small'></div>
+                    <div className='analysis-diamond-large large-ani-1'></div>
+                    <div className='analysis-diamond-medium medium-ani-1'></div>
+                    <div className='analysis-diamond-small small-ani-1'></div>
 
                     <div className='camera-section-holder'>
                         <img src={CameraIcon} className="camera-icon" onClick={() => setSteps(2)}/>
@@ -64,9 +64,9 @@ const Result = (data) => {
 
                 <div className='access-gallery-side-container'>
                     <div className='intermediary-div'></div>
-                    <div className='analysis-diamond-large'></div>
-                    <div className='analysis-diamond-medium'></div>
-                    <div className='analysis-diamond-small'></div>
+                    <div className='analysis-diamond-large large-ani-1'></div>
+                    <div className='analysis-diamond-medium medium-ani-1'></div>
+                    <div className='analysis-diamond-small small-ani-1'></div>
 
                     <div className='gallery-section-holder'>
                         <img src={GalleryIcon} className="gallery-icon"/>
