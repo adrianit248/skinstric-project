@@ -125,7 +125,7 @@ const Testing = () => {
 
             {step === 4 
             &&  <div className="proceed-button-holder">
-                    <Link to='/result' className="proceed-button-holder-style" data={data}>
+                    <Link to='/result' className="proceed-button-holder-style">
                         <div>
                             <div className="proceed-diamond">
                                 <span className="proceed-text">PROCEED</span>

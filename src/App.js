@@ -5,6 +5,8 @@ import Intro from './pages/Intro';
 import Testing from './pages/Testing';
 import Result from './pages/Result';
 import Select from './pages/Select';
+import Summary from './pages/Summary';
+import Capture from './pages/Capture';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
         <Route path="/testing" element={<Testing />} />
         <Route path="/result" element={<Result />} />
         <Route path="/select" element={<Select />} />
+        <Route path="/camera/capture" element={<Capture />} />
+        <Route path="/summary" element={<Summary />} />
       </Routes>
     </Router>
   );

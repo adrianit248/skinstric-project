@@ -5,14 +5,22 @@ import CameraScanLine from '../ResScanLine.webp'
 import GalleryIcon from '../gallery-icon.webp'
 import GalleryScanLine from '../ResGalleryLine.webp'
 import { MdPlayArrow } from "react-icons/md"
+import { useNavigate } from 'react-router-dom';
 
 
-const Result = (data) => {
+
+const Result = () => {
 
     const [steps, setSteps] = useState(1)
 
+    const navigate = useNavigate()
+
+    const handleButtonClick = () => {
+        navigate('/camera/capture')
+    }
+
     useEffect(() => {
-        console.log(data.data)
+
     }, [])
 
   return (
@@ -52,7 +60,7 @@ const Result = (data) => {
                                 <h2 className='access-camera-message'>ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
                                 <div className='deny-allow-holder'>
                                     <button className='deny-button' onClick={() => setSteps(1)}>DENY</button>
-                                    <button className='allow-button'>ALLOW</button>
+                                    <button className='allow-button' onClick={handleButtonClick}>ALLOW</button>
                                 </div>
                             </div>
                         </div>
