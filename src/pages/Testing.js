@@ -13,6 +13,7 @@ const Testing = () => {
     const [error, setError] = useState('')
     const [redText, setRedText] = useState(false)
     const [resulting, setResulting] = useState({})
+    const [showBtn, setShowBtn] = useState(false)
 
     const addName = (userName) => {
         const regex = /^[A-Za-z\s]*$/;
@@ -43,6 +44,7 @@ const Testing = () => {
         setTimeout(() => {
             setStep(4)
         }, 2000);
+        setShowBtn(true)
     }
 
     const saveAndUploadData = async (userData) => {
@@ -153,7 +155,7 @@ const Testing = () => {
             </div>
 
             {step === 4 
-            &&  <div className="proceed-button-holder">
+            &&  <div className={`proceed-button-holder ${showBtn && 'fadeInRight-animation'}`}>
                     <Link to='/result' className="proceed-button-holder-style">
                         <div>
                             <div className="proceed-diamond">
