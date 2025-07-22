@@ -837,7 +837,10 @@ TESTING PAGE
   rotate: 45deg;
   border-color: #1a1b1c;
 
-  @media (min-width: 640px) {
+}
+
+@media (min-width: 640px) {
+  .big-proceed-button{
     display: flex;
   }
 }
