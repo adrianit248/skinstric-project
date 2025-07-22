@@ -840,7 +840,7 @@ TESTING PAGE
 }
 
 @media (min-width: 640px) {
-  .big-proceed-button{
+  .big-proceed-button, .big-proceed-diamond{
     display: flex;
   }
 }
