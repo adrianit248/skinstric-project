@@ -7,28 +7,28 @@
 
 .large-ani {
   animation: rotat 15s linear infinite;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 .medium-ani {
   animation: rotat 20s linear infinite;
-  opacity: 0.25;
+  opacity: 0.4;
 }
 .small-ani {
   animation: rotat 25s linear infinite;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .large-ani-1 {
   animation: rotat1 15s linear infinite;
-  opacity: 0.2;
+  opacity: 0.3;
 }
 .medium-ani-1 {
   animation: rotat1 20s linear infinite;
-  opacity: 0.25;
+  opacity: 0.4;
 }
 .small-ani-1 {
   animation: rotat1 25s linear infinite;
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 @keyframes rotat {
@@ -907,7 +907,7 @@ RESULT PAGE
   flex-direction: column;
   align-items: center;
 
-  @media (min-width: 768px) {
+  @media (min-width: 962px) {
     margin-top: 0;
     flex-direction: row;
     flex: 1 1 0%;
@@ -919,12 +919,18 @@ RESULT PAGE
 }
 .scan-face-side-container {
   display: flex;
-  position: relative;
+  position: absolute;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  top: 100%;
+
 
   @media (min-width: 768px) {
+    position: absolute;
+    top: -350%;
+  }
+  @media (min-width: 962px) {
     position: absolute;
     left: 25%;
     top: 300%;
@@ -937,6 +943,11 @@ RESULT PAGE
   }
   @media (min-width: 1280px) {
     left: 25%;
+    top: 300%;
+    transform: translateX(-50%);
+  }
+  @media (min-width: 1280px) {
+    left: 30%;
     top: 300%;
     transform: translateX(-50%);
   }
@@ -954,7 +965,7 @@ RESULT PAGE
   position: absolute;
   width: 270px;
   height: 270px;
-  border: 1px dotted gray;
+  border: 2px dotted gray;
 
   @media (min-width: 768px) {
     width: 482px;
@@ -983,6 +994,29 @@ RESULT PAGE
     height: 405.18px;
   }
 }
+
+.result-dilarge{
+  @media (min-width: 768px) {
+    width: 300px;
+    height: 300px;
+  }
+    
+}
+.result-dimedium{
+  @media (min-width: 768px) {
+    width: 260px;
+    height: 260px;
+  }
+  
+}
+.result-dismall{
+  @media (min-width: 768px) {
+    width: 220px;
+    height: 220px;
+  }
+  
+}
+
 .camera-section-holder {
   display: flex;
   position: absolute;
@@ -1044,7 +1078,7 @@ RESULT PAGE
 }
 .access-gallery-side-container {
   display: flex;
-  position: relative;
+  position: absolute;
   margin-top: 3rem;
   flex-direction: column;
   justify-content: center;
@@ -1054,8 +1088,13 @@ RESULT PAGE
   transition-duration: 300ms;
   transition-duration: 300ms;
   opacity: 1;
+  top: 750%;
 
   @media (min-width: 768px) {
+    position: absolute;
+    top: 650%;
+  }
+  @media (min-width: 962px) {
     position: absolute;
     margin-top: 0;
     right: 25%;
@@ -1069,6 +1108,11 @@ RESULT PAGE
   }
   @media (min-width: 1280px) {
     right: 25%;
+    top: 300%;
+    transform: translateX(50%);
+  }
+  @media (min-width: 1280px) {
+    right: 30%;
     top: 300%;
     transform: translateX(50%);
   }
@@ -1285,10 +1329,12 @@ RESULT PAGE
   position: absolute;
   z-index: 50;
   width: 352px;
+  top: 15%;
 
   @media (min-width: 768px) {
-    top: 43%;
-    left: 360px;
+    top: 500%;
+    left: 50%;
+    transform: translateX(-50%);
   }
 }
 .access-camera-message-container {

@@ -62,7 +62,7 @@ const Result = () => {
   };
 
   return (
-    <div>
+    <div className='no-scroll'>
       <div className='intro-header-section'>
         <div className='intro-header-section-namestate'>
           <Link to="/" className='intro-header-section-name'>sKINsTRIC</Link>
@@ -79,9 +79,9 @@ const Result = () => {
         <div className='main-result-container'>
           <div className='scan-face-side-container'>
             <div className='intermediary-div'></div>
-            <div className='analysis-diamond-large large-ani-1'></div>
-            <div className='analysis-diamond-medium medium-ani-1'></div>
-            <div className='analysis-diamond-small small-ani-1'></div>
+            <div className='analysis-diamond-large large-ani-1 result-dilarge'></div>
+            <div className='analysis-diamond-medium medium-ani-1 result-dimedium'></div>
+            <div className='analysis-diamond-small small-ani-1 result-dismall'></div>
 
             <div className='camera-section-holder'>
               <img src={CameraIcon} className="camera-icon" onClick={() => setSteps(2)} />
@@ -91,24 +91,14 @@ const Result = () => {
               </div>
             </div>
 
-            {steps === 2 &&
-              <div className='access-camera-holder'>
-                <div className='access-camera-message-container'>
-                  <h2 className='access-camera-message'>ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
-                  <div className='deny-allow-holder'>
-                    <button className='deny-button' onClick={() => setSteps(1)}>DENY</button>
-                    <button className='allow-button' onClick={handleButtonClick}>ALLOW</button>
-                  </div>
-                </div>
-              </div>
-            }
+            
           </div>
 
           <div className='access-gallery-side-container'>
             <div className='intermediary-div'></div>
-            <div className='analysis-diamond-large large-ani-1'></div>
-            <div className='analysis-diamond-medium medium-ani-1'></div>
-            <div className='analysis-diamond-small small-ani-1'></div>
+            <div className='analysis-diamond-large large-ani-1 result-dilarge'></div>
+            <div className='analysis-diamond-medium medium-ani-1 result-dimedium'></div>
+            <div className='analysis-diamond-small small-ani-1 result-dismall'></div>
 
             <div className='gallery-section-holder'>
               <img src={GalleryIcon} className="gallery-icon" onClick={handleGalleryClick} />
@@ -132,6 +122,18 @@ const Result = () => {
               {previewImage && <img src={previewImage} alt="Preview" className='preview-img' />}
             </div>
           </div>
+
+          {steps === 2 &&
+              <div className='access-camera-holder'>
+                <div className='access-camera-message-container'>
+                  <h2 className='access-camera-message'>ALLOW A.I. TO ACCESS YOUR CAMERA</h2>
+                  <div className='deny-allow-holder'>
+                    <button className='deny-button' onClick={() => setSteps(1)}>DENY</button>
+                    <button className='allow-button' onClick={handleButtonClick}>ALLOW</button>
+                  </div>
+                </div>
+              </div>
+            }
 
           <div className='result-bottom'>
             <div className='bottom-bar'>
